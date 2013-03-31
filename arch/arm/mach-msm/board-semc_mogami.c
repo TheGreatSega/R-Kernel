@@ -186,7 +186,7 @@
 #define MSM_FB_SIZE		0x500000
 #endif /* CONFIG_FB_MSM_HDMI_SII9024A_PANEL */
 #define MSM_GPU_PHYS_SIZE       SZ_4M
-#define MSM_PMEM_CAMERA_SIZE    0x3000000
+#define MSM_PMEM_CAMERA_SIZE    0x2000000
 #define MSM_PMEM_ADSP_SIZE      0x1000000
     /* Will come back to this later for 480p recording only */
 /*#define MSM_PMEM_CAMERA_SIZE    0x2A00000
