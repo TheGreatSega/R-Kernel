@@ -126,25 +126,25 @@ static struct clkctl_acpu_speed acpu_freq_tbl[] = {
 	{ 245760, PLL_3,    5, 2,  61440000,  900, VDD_RAW(900) },
 	{ 368640, PLL_3,    5, 1,  122800000, 900, VDD_RAW(900) },
 	/* AXI has MSMC1 implications. See above. */
-	{ 460800, PLL_1,    2, 0,  153600000, 950, VDD_RAW(950) },
-	{ 576000, PLL_1,    2, 0,  153600000, 1000, VDD_RAW(1000) },
-	{ 652800, PLL_1,    2, 0,  153600000, 1050, VDD_RAW(1050) },
-	{ 768000, PLL_1,    2, 0,  153600000, 1050, VDD_RAW(1050) },
+	{ 460800, PLL_1,    2, 0,  153600000, 925, VDD_RAW(925) },
+	{ 576000, PLL_1,    2, 0,  153600000, 925, VDD_RAW(925) },
+	{ 652800, PLL_1,    2, 0,  153600000, 950, VDD_RAW(950) },
+	{ 768000, PLL_1,    2, 0,  153600000, 950, VDD_RAW(950) },
 	/*
 	 * AXI has MSMC1 implications. See above.
 	 * 806.4MHz is increased to match the SoC's capabilities at runtime
 	 */
-	{ 806400, PLL_2,    3, 0,  UINT_MAX, 1100, VDD_RAW(1100) },
-	{ 921600, PLL_2,    3, 0,  UINT_MAX, 1150, VDD_RAW(1150) },
-	{ 1024000, PLL_2,   3, 0,  UINT_MAX, 1200, VDD_RAW(1200) },
-	{ 1113000, PLL_2,   3, 0,  UINT_MAX, 1200, VDD_RAW(1200) },
-	{ 1200000, PLL_2,   3, 0,  UINT_MAX, 1200, VDD_RAW(1200) },
-	{ 1305600, PLL_2,   3, 0,  UINT_MAX, 1250, VDD_RAW(1250) },
-	{ 1401600, PLL_2,   3, 0,  UINT_MAX, 1250, VDD_RAW(1250) },
-	{ 1516800, PLL_2,   3, 0,  UINT_MAX, 1300, VDD_RAW(1300) },
-	{ 1612800, PLL_2,   3, 0,  UINT_MAX, 1300, VDD_RAW(1300) },
-	{ 1708800, PLL_2,   3, 0,  UINT_MAX, 1350, VDD_RAW(1350) },
-	{ 1804800, PLL_2,   3, 0,  UINT_MAX, 1350, VDD_RAW(1350) },
+	{ 806400, PLL_2,    3, 0,  UINT_MAX, 975, VDD_RAW(975) },
+	{ 921600, PLL_2,    3, 0,  UINT_MAX, 1000, VDD_RAW(1000) },
+	{ 1024000, PLL_2,   3, 0,  UINT_MAX, 1050, VDD_RAW(1050) },
+	{ 1113000, PLL_2,   3, 0,  UINT_MAX, 1050, VDD_RAW(1050) },
+	{ 1200000, PLL_2,   3, 0,  UINT_MAX, 1100, VDD_RAW(1100) },
+	{ 1305600, PLL_2,   3, 0,  UINT_MAX, 1125, VDD_RAW(1125) },
+	{ 1401600, PLL_2,   3, 0,  UINT_MAX, 1150, VDD_RAW(1150) },
+	{ 1516800, PLL_2,   3, 0,  UINT_MAX, 1175, VDD_RAW(1175) },
+	{ 1612800, PLL_2,   3, 0,  UINT_MAX, 1200, VDD_RAW(1200) },
+	{ 1708800, PLL_2,   3, 0,  UINT_MAX, 1250, VDD_RAW(1250) },
+	{ 1804800, PLL_2,   3, 0,  UINT_MAX, 1300, VDD_RAW(1300) },
 #if OVERCLOCK_CPU_LOW
 	{ 0 }
 #else

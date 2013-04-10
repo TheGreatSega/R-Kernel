@@ -1,0 +1,11 @@
+--- drivers/staging/Makefile
++++ drivers/staging/Makefile
+@@ -45,6 +45,7 @@
+ obj-$(CONFIG_DX_SEP)		+= sep/
+ obj-$(CONFIG_IIO)		+= iio/
+ obj-$(CONFIG_SNAPPY_COMPRESS)   += snappy/
+-obj-$(CONFIG_SNAPPY_DECOMPRESS)   += snappy/
++obj-$(CONFIG_SNAPPY_DECOMPRESS) += snappy/
+ obj-$(CONFIG_ZRAM)              += zram/
++obj-$(CONFIG_ZCACHE)            += zcache/
+ obj-$(CONFIG_XVMALLOC)          += zram/

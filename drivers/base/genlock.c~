@@ -390,26 +390,15 @@ static int _genlock_lock(struct genlock *lock, struct genlock_handle *handle,
 		goto done;
 	}
 
-	/*
-	 * Wait while the lock remains in an incompatible state
-	 * state    op    wait
-	 * -------------------
-	 * unlocked n/a   no
-	 * read     read  no
-	 * read     write yes
-	 * write    n/a   yes
-	 */
+	/* Wait while the lock remains in an incompatible state */
 
-	while ((lock->state == _RDLOCK && op == _WRLOCK) ||
-			lock->state == _WRLOCK) {
+	while (lock->state != _UNLOCKED) {
 		unsigned int elapsed;
 
 		spin_unlock_irqrestore(&lock->lock, irqflags);
 
 		elapsed = wait_event_interruptible_timeout(lock->queue,
-			lock->state == _UNLOCKED ||
-			(lock->state == _RDLOCK && op == _RDLOCK),
-			ticks);
+			lock->state == _UNLOCKED, ticks);
 
 		spin_lock_irqsave(&lock->lock, irqflags);
 
@@ -661,19 +650,12 @@ static struct genlock_handle *_genlock_get_handle(void)
 
 struct genlock_handle *genlock_get_handle(void)
 {
-	void *ret;
 	struct genlock_handle *handle = _genlock_get_handle();
 	if (IS_ERR(handle))
 		return handle;
 
-	ret = anon_inode_getfile("genlock-handle",
+	handle->file = anon_inode_getfile("genlock-handle",
 		&genlock_handle_fops, handle, O_RDWR);
-	if (IS_ERR_OR_NULL(ret)) {
-		GENLOCK_LOG_ERR("Unable to create handle inode\n");
-		kfree(handle);
-		return ret;
-	}
-	handle->file = ret;
 
 	return handle;
 }
